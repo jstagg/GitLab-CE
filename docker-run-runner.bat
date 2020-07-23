@@ -4,6 +4,7 @@ set GITLAB_HOME="//D/DockerDataMounts/GitLabRunner"
 
 REM docker volume create gitlab-runner-sock
 docker run -d --name gitlab-runner --restart always -v %GITLAB_HOME%/run/docker.sock:/var/run/docker.sock -v %GITLAB_HOME%/config:/etc/gitlab-runner:Z gitlab/gitlab-runner:latest
+docker network connect my-bridge-network gitlab-runner
 
 REM VpNZmS1V3GNU2TqgenTp http://localhost/
 REM register:
